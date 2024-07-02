@@ -57,7 +57,7 @@
             "warning": 20,
             "critical": 10
         },
-        "format": "{capacity}% {icon} ",
+        "format": "{capacity}% {icon} abcdefg",
         "format-full": "{capacity}% {icon}",
         "format-charging": "{capacity}%  ",
         "format-plugged": "{capacity}%  ",
