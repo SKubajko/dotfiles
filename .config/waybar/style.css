@@ -1,0 +1,264 @@
+* {
+    font-family: JetBrainsMono Nerd Font;
+    font-size: 11px;
+}
+
+window#waybar {
+    background-color: #242933;
+    border: 2px solid #444d57;
+    color: #ffffff;
+    transition-property: background-color;
+    transition-duration: .5s;
+    border-radius: 10px;
+}
+
+window#waybar.hidden {
+    opacity: 0.2;
+}
+
+#workspaces {
+    margin-left: 5px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    border-radius: 7px;
+    background-color: #444953;
+}
+
+#workspaces button {
+    background-color: transparent;
+    color: #ffffff;
+    padding: 0 2px;
+    transition: color 0.2s, background-color 0.2s;
+    border-radius: 0;
+}
+
+#workspaces button:first-child {
+    border-radius: 7px 0 0 7px;
+}
+#workspaces button:last-child {
+    border-radius: 0 7px 7px 0;
+}
+
+#workspaces button.empty {
+    color: #999999;
+}
+
+#workspaces button.active {
+    background: rgba(255,255,255,0.15);
+}
+
+#workspaces button.urgent {
+    background-color: #eb4d4b;
+}
+
+#tray {
+    margin-right: 5px;
+}
+
+.modules-center,#tray {
+    background-color: #444953;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    border-radius: 7px;
+    padding: 0 5px;
+}
+
+
+
+#battery {
+    background-color: transparent;
+    color: #FFFFFF;
+    border-radius: 7px;
+    margin-bottom: 5px;
+    margin-top: 5px;
+    margin-right: 2px;
+    padding: 0 3px;
+}
+
+#battery.plugged {
+    color: #ffffff;
+    background-color:#f0932b;
+    margin-right: 5px;
+    padding-left: 20px;
+}
+
+#battery.charging {
+    color: #ffffff;
+    background-color: #26A65B;
+    margin-right: 5px;
+}
+
+#battery.full {
+    color: #ffffff;
+    background-color: #26A65B;
+    margin-right: 5px;
+}
+
+#battery.warning:not(.charging):not(.plugged) {
+  color: #f53c3c;
+}
+
+@keyframes blink {
+  to {
+      color: #FFFFFF;
+      background-color:#f53c3c;
+  }
+}
+
+#battery.critical:not(.charging):not(.plugged) {
+  color: #f53c3c;
+  animation-name: blink;
+  animation-duration: 0.15s;
+  animation-timing-function: steps(12);
+  animation-iteration-count: 30;
+  animation-direction: alternate;
+}
+
+
+#power-profiles-daemon.performance {
+    color: #f53c3c;
+}
+
+#power-profiles-daemon.balanced {
+    color:#2980b9;
+}
+
+#power-profiles-daemon.power-saver {
+    color: #2ecc71;
+}
+
+label:focus {
+    background-color: #000000;
+}
+
+#cpu {
+    color: #2ecc71;
+}
+
+#memory {
+    margin-left: 5px;
+    color: #9b59b6;
+}
+
+#disk {
+    color: #964B00;
+}
+
+#backlight {
+    color: #90b1b1;
+}
+
+#network {
+    background-color: #2980b9;
+}
+
+#network.disconnected {
+    background-color: #f53c3c;
+}
+
+#wireplumber {
+    color: #f1c40f;
+    margin-right: 5px;
+}
+
+#wireplumber.muted {
+    color: #90b1b1;
+}
+
+@keyframes temp-normal {
+    to {
+      color: #f0932b;
+      background-color: #444953;
+    }
+    
+    from {
+      color: #F0c06b;
+      background-color:#eb4d4b;
+    }
+}
+
+#temperature {
+    color: #F0932b;
+    background-color: #444953;
+    border-radius: 7px;
+    margin: 5px 2px;
+    padding: 0 3px;
+    animation-name: temp-normal;
+    animation-duration: .3s;
+    animation-timing-function: steps(12);
+    animation-iteration-count: 1;
+    animation-direction: normal;
+}
+
+@keyframes crit {
+    from {
+      color: #f0932b;
+      background-color: #444953;
+    }
+    
+    to {
+      color: #F0c06b;
+      background-color:#eb4d4b;
+    }
+}
+
+#temperature.critical {
+    color: #F0c06b; 
+    background-color: #eb4d4b;
+    animation-name: crit;
+    animation-duration: .3s;
+    animation-timing-function: steps(12);
+    animation-iteration-count: 1;
+    animation-direction: normal;
+}
+
+
+#custom-power {
+  margin-right: 0px;
+  color: #ffaaaa;
+}
+#custom-reboot {
+  margin-right:2px;
+  color: #ffff99;
+}
+#custom-lock {
+  margin-right:2px;
+  color: #bbbbff
+}
+#custom-quit {
+  margin-right:2px;
+  color: #7777ff;
+}
+
+#power-group { 
+    background-color: #444953;
+    margin-bottom: 5px;
+    margin-top: 5px;
+    margin-right: 5px;
+    border-radius: 7px;
+    padding-left: 5px;
+}
+
+#stats { 
+    background-color: #444953;
+    margin-bottom: 5px;
+    margin-top: 5px;
+    margin-right: 5px;
+    border-radius: 7px;
+    padding-left: 5px;
+    margin-left: 5px;
+}
+
+#av { 
+    background-color: #444953;
+    margin-bottom: 5px;
+    margin-top: 5px;
+    margin-right: 5px;
+    border-radius: 7px;
+    padding-left: 5px;
+}
+
+#custom-spotify {
+  margin-left: 10px;
+  color: #99ff99;
+}

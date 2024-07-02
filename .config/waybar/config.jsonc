@@ -1,0 +1,173 @@
+// -*- mode: jsonc -*-
+{
+    "height": 34,
+    "spacing": 0, 
+    "margin-top": 10,
+    "margin-left": 10,
+    "margin-right": 10,
+    "modules-left": [
+        "hyprland/workspaces",
+        "group/stats",
+    ],
+    "modules-center": [
+        "clock",
+        "custom/spotify",
+    ],
+    "modules-right": [ 
+        "tray",
+        "group/av",
+        "group/power-group", 
+    ],
+    "tray": {
+        "spacing": 5
+    },
+     "clock": {
+        "interval": 1,
+        "format": "{:L%H:%M:%S %d %b}",
+        "timezone": "Europe/Warsaw",
+        "locale": "pl_PL.UTF-8",
+        "tooltip": false,
+    },
+  "cpu": {
+        "format": "{usage}%  ",
+        "tooltip": false,
+        "interval": 2,
+    },
+    "memory": {
+        "format": "{}%  ",
+        "interval": 2,
+        "tooltip": false,
+    },
+    "temperature": {
+        "hwmon-path": "/sys/class/hwmon/hwmon4/temp1_input",
+        "critical-threshold": 80,
+        "format": "{temperatureC}°C {icon}",
+        "format-icons": ["", "", ""],
+        "interval": 1,
+        "tooltip": false,
+    },
+    "backlight": {
+        "format": "{percent}% {icon}",
+        "format-icons": [" ", " ", " ", " ", " ", " ", " ", " ", " "],
+        "reverse-scrolling": true
+    },
+    "battery": {
+        
+        "states": {
+            "warning": 20,
+            "critical": 10
+        },
+        "format": "{capacity}% {icon} ",
+        "format-full": "{capacity}% {icon}",
+        "format-charging": "{capacity}%  ",
+        "format-plugged": "{capacity}%  ",
+        "format-full": "Full  ",
+        "format-icons": ["", "", "", "", ""],
+        "interval": 1,
+        "tooltip": false,
+    },
+    "power-profiles-daemon": {
+      "format": "{icon}",
+      "tooltip": false,
+      "format-icons": {
+        "default": " ",
+        "performance": " ",
+        "balanced": " ",
+        "power-saver": " "
+      }
+    },
+    "wireplumber": {
+        "format": "{volume}% {icon}",
+        "format-bluetooth": "{volume}% {icon} {format-source}",
+        "format-bluetooth-muted": "{volume}%  ",
+        "format-muted":"{volume}%  ",
+        "format-source": "{volume}% ",
+        "format-source-muted": " ",
+        "format-icons": {
+            "headphone": " ",
+            "hands-free": " ",
+            "headset": " ",
+            "phone": " ",
+            "portable": " ",
+            "car": " ",
+            "default": [" ", " ", " "]
+        },
+        "on-click": "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle",
+        "reverse-scrolling": true
+    }, 
+    "hyprland/workspaces": {
+      "show-special": true,
+      "persistent-workspaces": {
+        "*": 10
+      }
+    },
+
+
+
+
+    "group/power-drawer": {
+    "orientation": "inherit",
+    "drawer": {
+        "transition-duration": 500,
+        "children-class": "not-power",
+        "transition-left-to-right": false,
+    },
+    "modules": [
+        "custom/power",
+        "custom/quit",
+        "custom/lock",
+        "custom/reboot",
+    ]
+},
+    "group/power-group": {
+      "orientation": "inherit",
+      "modules": [
+        "power-profiles-daemon",
+        "battery",
+        "group/power-drawer",
+  ]
+  },
+    "group/stats": {
+      "orientation": "inherit",
+      "modules": [
+        "cpu",
+        "memory",
+        "temperature",
+    ],
+  },
+    "group/av": {
+      "orientation": "inherit",
+      "modules": [
+        "wireplumber",
+        "backlight"
+    ],
+  },
+"custom/quit": {
+    "format": " ",
+    "tooltip": false,
+    "on-click": "hyprctl dispatch exit"
+},
+"custom/lock": {
+    "format": " ",
+    "tooltip": false,
+    "on-click": "hyprlock"
+},
+"custom/reboot": {
+    "format": " ",
+    "tooltip": false,
+    "on-click": "reboot"
+},
+"custom/power": {
+    "format": " ",
+    "tooltip": false,
+    "on-click": "poweroff"
+},
+"custom/spotify": {
+    "format": "{}",
+    "escape": false,
+    "return-type": "json",
+    "max-length": 100,
+    "exec": "/home/kuba/.config/waybar/custom-modules/mediaplayer.py 2> /dev/null",
+    "exec-if": "pgrep spotify"
+  }
+}

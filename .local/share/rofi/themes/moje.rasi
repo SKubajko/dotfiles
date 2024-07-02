@@ -1,0 +1,81 @@
+configuration {
+  modes: [ run, drun ];
+}
+
+
+* {
+  font: "JetBrainsMono Nerd Font 10";
+}
+
+element-text, element-icon, mode-switcher {
+  background-color: inherit;
+  text-color: inherit;
+}
+
+
+
+window {
+  border-radius: 20px;
+  background-color: #1e1e1e;
+  border-color: #f0f0f0;
+}
+
+mainbox {
+  background-color: #1e1e1e;
+}
+
+
+
+inputbar {
+    background-color: #1e1e1e;
+    border-radius: 5px;
+    padding: 7px;
+    text-color: #f0f0f0;
+    children: [prompt,entry];
+}
+
+prompt {
+  background-color: #1e1e1e;
+  text-color: #f0f0f0;
+}
+
+entry {
+  text-color: #f0f0f0;
+  background-color: #1e1e1e;
+}
+
+
+mode-switcher {
+  spacing: 0;
+}
+button {
+  background-color: #1e1e1e;
+  text-color: #a0a0a0;
+  padding: 7px;
+}
+button selected {
+  background-color: #1e1e1e;
+  text-color: #60dfff;
+}
+
+listview {
+  background-color: #1e1e1e;
+  lines: 13;
+}
+
+message {
+  background-color: #1e1e1e;
+}
+
+
+element {
+  padding: 2px;
+  background-color: #1e1e1e;
+  text-color: #b0b0b0;
+}
+
+element selected {
+  background-color: #505050;
+  text-color:#f0f0f0;
+}
+
